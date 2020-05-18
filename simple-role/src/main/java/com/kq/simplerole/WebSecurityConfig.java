@@ -18,8 +18,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // 没有以ROLE_开头  会报403   Access Denied
-        http.authorizeRequests().antMatchers("/admin/api/**").hasRole("ROLE_ADMIN")
-                .antMatchers("/user/api/**").hasRole("ROLE_USER")
+        // 加拉 ROLE_会启不动  需要调试
+        http.authorizeRequests().antMatchers("/admin/api/**").hasRole("ADMIN")
+                .antMatchers("/user/api/**").hasRole("USER")
                 .antMatchers("/app/api/**").permitAll()
                 .anyRequest().authenticated().and().csrf().disable();
     }
