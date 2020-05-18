@@ -17,12 +17,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/", "/home").permitAll()
+				.antMatchers("/", "/home").permitAll() //home页不设权限访问
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
 				.loginPage("/login")
-				.permitAll()
+				.permitAll() //登录页不设权限访问
 				.and()
 			.logout()
 				.permitAll();

@@ -1,0 +1,10 @@
+简单的例子  访问http://localhost:8080/ 会先跳转到登录界面
+输入用户名和密码  跳转到/
+
+vistitor:
+http://localhost:8080/
+
+
+enter
+username: guest
+password: 123456

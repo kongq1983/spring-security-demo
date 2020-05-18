@@ -1,0 +1,6 @@
+
+spring:
+  security:
+    user:
+      name: guest
+      password: 123456
