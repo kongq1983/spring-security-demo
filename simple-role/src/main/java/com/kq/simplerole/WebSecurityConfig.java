@@ -22,7 +22,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/admin/api/**").hasRole("ADMIN")
                 .antMatchers("/user/api/**").hasRole("USER")
                 .antMatchers("/app/api/**").permitAll()
-                .anyRequest().authenticated().and().csrf().disable();
+                .and().formLogin().loginPage("/login").permitAll() //登录页不设权限访问
+//                .anyRequest().authenticated().and().csrf().disable()
+                ;
     }
 
 
