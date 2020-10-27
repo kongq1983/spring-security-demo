@@ -12,6 +12,7 @@
         <module>quickstart</module>
         <module>first-demo</module>
         <module>simple-role</module>
+        <module>default-schema-demo</module>
     </modules>
 
 
