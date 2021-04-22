@@ -1,4 +1,19 @@
+
+org.springframework.security.web.FilterChainProxy
 调试:  FilterSecurityInterceptor  AbstractSecurityInterceptor
 
+org.springframework.security.access.vote.AffirmativeBased
+
+WebSecurityExpressionRoot
+DefaultWebSecurityExpressionHandler  // root.setDefaultRolePrefix(this.defaultRolePrefix);
+DefaultWebSecurityExpressionHandler
+
+readme:
+AuthenticationFailureHandler: ForwardAuthenticationFailureHandler
+AuthenticationSuccessHandler: ForwardAuthenticationSuccessHandler
+AuthenticationEntryPoint:
+
+
+PermitAllSupport
 
 角色以ROLE_开头的

@@ -23,6 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 加拉 ROLE_会启不动  需要调试
         http.authorizeRequests().antMatchers("/admin/api/**").hasRole("ADMIN")
                 .antMatchers("/user/api/**").hasRole("USER")
+//                .antMatchers("/user/api/**").hasAuthority("USER")
                 .antMatchers("/app/api/**").permitAll()
                 .and().formLogin().loginPage("/login").permitAll() //登录页不设权限访问
 //                .anyRequest().authenticated().and().csrf().disable()
@@ -52,6 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
 
         JdbcDaoImpl jdbcDao = new JdbcDaoImpl();
+        // 这里设置了 数据库就直接USER、ADMIN
         jdbcDao.setRolePrefix("ROLE_");
 //        jdbcDao.setEnableGroups(true);
 //        jdbcDao.setEnableAuthorities(true);

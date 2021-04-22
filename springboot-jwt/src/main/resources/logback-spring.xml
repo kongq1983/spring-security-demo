@@ -9,7 +9,7 @@
         <property name="FILE_DIR" value="/tmp/logs/" />
     </springProfile>
     <springProfile name="!linux">
-        <property name="FILE_DIR" value="c:/logs/spring-security-jdbc/" />
+        <property name="FILE_DIR" value="c:/logs/spring-security-jwt/" />
     </springProfile>
     <!--<logger name="org.springframework.web" level="INFO" />
     <logger name="org.springframework" level="INFO" />-->
