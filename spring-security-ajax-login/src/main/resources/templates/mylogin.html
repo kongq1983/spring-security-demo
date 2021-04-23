@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Spring Security Example </title>
+    <meta name="_csrf" content="${_csrf.token}"/>
 </head>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
@@ -50,6 +51,9 @@
 
 
 <form action="/mylogin" method="post">
+    <input type="hidden" name="_csrf" />
+
+
     <div><label> User Name : <input type="text" id="username" name="username"/> </label></div>
     <div><label> Password: <input type="password" id="password" name="password"/> </label></div>
     <div><input id="loginBtn" type="button" value="Submit"/></div>
