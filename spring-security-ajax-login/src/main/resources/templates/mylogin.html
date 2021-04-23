@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example </title>
+</head>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+        $("#loginBtn").click(function () {
+
+            var username = $.trim($("#username").val());
+            var password = $.trim($("#password").val());
+
+            if(username=="" || password == ""){
+                alert("请输入账号或密码");
+                return ;
+            }
+
+            var data = {"username":username,"password":password};
+
+            $.ajax({
+                "url": "/mylogin",
+                "type": "POST",
+                "data": data,
+                //"contentType": "application/json;charset=UTF-8",  这是我的疑问所在
+                "dataType": "json",
+                "success": function (response) {
+                    var code = response.code;
+                    if (code == "0") {
+                        // alert("登录成功");
+                        $('#message').html("登录成功");
+                    }else {
+                        // alert("code="+response.code+"  message="+response.result);
+                        $('#message').html("code="+response.code+"  message="+response.result);
+                    }
+                },
+                "error": function (response) {
+                    alert(response.message)
+                }
+            })
+        })
+    });
+
+</script>
+
+<body>
+
+
+<form action="/mylogin" method="post">
+    <div><label> User Name : <input type="text" id="username" name="username"/> </label></div>
+    <div><label> Password: <input type="password" id="password" name="password"/> </label></div>
+    <div><input id="loginBtn" type="button" value="Submit"/></div>
+</form>
+<br/>
+<div id="message">
+</div>
+</body>
+</html>
